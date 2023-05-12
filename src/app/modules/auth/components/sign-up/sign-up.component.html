@@ -1,0 +1,19 @@
+<div>
+    <form 
+        [formGroup]="form"
+        (ngSubmit)="submit()">
+        <input type="file" class="file-upload" (change)="uploadPhoto($event)">
+        <input
+            type="text" 
+            formControlName="email">
+        <input
+            type="password" 
+            formControlName="password">
+        <input
+            type="password" 
+            formControlName="reEnteredPassword">
+        <button
+            type="submit">
+            Create</button>
+    </form>
+</div>
