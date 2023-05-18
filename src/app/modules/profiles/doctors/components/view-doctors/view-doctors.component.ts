@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorsListItem } from 'src/app/shared/models/profiles/doctors/doctors-list-item';
-import { DoctorsService } from '../../services/doctors.service';
+import { DoctorsService } from '../../../../../shared/services/doctors.service';
 import { Observable } from 'rxjs';
 import { DoctorParams } from 'src/app/shared/models/profiles/doctors/doctor-params';
 
@@ -11,7 +11,7 @@ import { DoctorParams } from 'src/app/shared/models/profiles/doctors/doctor-para
 })
 export class ViewDoctorsComponent implements OnInit {
   doctorsList: Array<DoctorsListItem>
-  $doctors: Observable<DoctorsListItem>
+  $doctors: Observable<DoctorsListItem[]>
 
   constructor(private doctorsService: DoctorsService){
   }
@@ -27,8 +27,13 @@ export class ViewDoctorsComponent implements OnInit {
       middleNameSearch: '',
       officeId: '',
       specializationId: '',
+      page: 1,
+      size: 10
     }
     this.$doctors = this.doctorsService.get(params)
+    this.$doctors.subscribe(res =>{
+      this.doctorsList = res
+    })
     console.log(this.$doctors)
   }
 }
