@@ -1,5 +1,12 @@
 <div>
-    <div *ngFor="let doctor ngForOf $doctors | async">
-        <div>doctor.status</div>
+    <div *ngFor="let doctor of doctorsList">
+        <div>{{doctor.firstName}}</div>
+        <div>{{doctor.lastName}}</div>
+        <div>{{doctor.middleName}}</div>
+        <div>{{doctor.spectialization.name}}</div>
+        <div>{{doctor.office.officeNumber + " " + doctor.office.houseNumber + " " + doctor.office.street + " " + doctor.office.city}}</div>
+        <div>{{doctor.status}}</div>
+        <div>{{doctor.dateOfBirth}}</div>
+        <div>{{doctor.experience}}</div>
     </div>
 </div>
