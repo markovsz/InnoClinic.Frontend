@@ -3,5 +3,7 @@ export interface DoctorParams {
     lastNameSearch: string,
     middleNameSearch: string,
     specializationId: string,
-    officeId: string
+    officeId: string,
+    page: number,
+    size: number
 }
